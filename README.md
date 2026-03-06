@@ -29,18 +29,26 @@ Alert when PowerShell runs with suspicious parameters:
 Technique: T1059.001  
 PowerShell
 
-Attack Execution Steps
-Step 1 – Encode PowerShell Command
+## Tools Used
 
-Step 2 – Execute Encoded Command
-
-Step 3 – PowerShell Execution
-
-Step 4 – Event 4688 Generated
-
-Step 5 – Command Line Details
-
-Step 6 – Detection Confirmed
 - Windows 11
 - Sysmon
 - Event Viewer
+
+### Step 1 – Encode PowerShell Command
+![Step1](screenshots%201.jpg)
+
+### Step 2 – Execute Encoded Command
+![Step2](screenshots%202.jpg)
+
+### Step 3 – PowerShell Execution
+![Step3](screenshots%203.jpg)
+
+### Step 4 – Event 4688 Generated
+![Step4](screenshots%204.jpg)
+
+### Step 5 – Command Line Details
+![Step5](screenshots%205.jpg)
+
+### Step 6 – Detection Confirmed
+![Step6](screenshots%206.jpg)
