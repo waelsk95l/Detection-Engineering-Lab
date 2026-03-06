@@ -1,0 +1,33 @@
+title: Suspicious PowerShell Execution
+id: powershell-detection-001
+status: experimental
+description: Detects suspicious PowerShell execution with common attacker flags
+
+author: Wael SK
+date: 2026-03-06
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    EventID: 4688
+    CommandLine|contains:
+      - powershell
+      - -nop
+      - downloadstring
+      - IEX
+
+  condition: selection
+
+fields:
+  - CommandLine
+  - ParentProcessName
+  - NewProcessName
+
+level: high
+
+tags:
+  - attack.execution
+  - attack.t1059.001
