@@ -44,11 +44,11 @@ PowerShell
 ### Step 3 – PowerShell Execution
 ![Step3](screenshots%203.jpg)
 
-### Step 4 – Event 4688 Generated
+### Step 4 –PowerShell Execution
 ![Step4](screenshots%204.jpg)
 
-### Step 5 – Command Line Details
+### Step 5 – Event 4688 Generated
 ![Step5](screenshots%205.jpg)
 
-### Step 6 – Detection Confirmed
+### Step 6 – Command Line Details
 ![Step6](screenshots%206.jpg)
