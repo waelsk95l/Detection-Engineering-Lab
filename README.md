@@ -35,6 +35,14 @@ PowerShell
 - Sysmon
 - Event Viewer
 
+  ## Detection Rule
+
+This attack can be detected by monitoring Windows Event ID 4688 and looking for PowerShell execution with the following indicators:
+
+- EncodedCommand
+- NoProfile
+- Hidden window style
+
 ### Step 1 – Encode PowerShell Command
 ![Step1](screenshots%201.jpg)
 
