@@ -50,3 +50,4 @@ T1059.001 – PowerShell
 - Check network connections
 - Determine if the activity is malicious
 - Isolate the host if required
+.
