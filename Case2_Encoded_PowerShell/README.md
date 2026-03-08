@@ -70,4 +70,34 @@ condition: selection
 
 ## Lab Evidence
 
-See the attack execution and event logs in the screenshots included in this lab.
+### 1. Generating Encoded PowerShell Command (Attacker Machine - Kali)
+
+![Encoded Command Generation](screenshots1.jpg)
+
+The attacker generates a Base64 encoded PowerShell command using Kali Linux.
+
+---
+
+### 2. Executing Encoded PowerShell on Target Machine
+
+![Encoded PowerShell Execution](screenshots2.jpg)
+
+The encoded PowerShell command is executed on the Windows target machine.
+
+---
+
+### 3. Sysmon Event Detection
+
+![Sysmon Event](screenshots3.jpg)
+
+Sysmon logs the PowerShell process execution including the encoded command.
+
+---
+
+### 4. Windows Security Event 4688
+
+![Event 4688](screenshots4.jpg)
+
+Windows Security Event ID 4688 records the process creation of PowerShell with encoded command.
+
+
