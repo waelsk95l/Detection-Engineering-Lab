@@ -44,19 +44,25 @@ This attack can be detected by monitoring Windows Event ID 4688 and looking for 
 - Hidden window style
 
 ### Step 1 – Encode PowerShell Command
-![Step1](screenshots%201.jpg)
+![Step1](usecase-powershell-detection
+/screenshots%201.jpg)
 
 ### Step 2 – Execute Encoded Command
-![Step2](screenshots%202.jpg)
+![Step2](usecase-powershell-detection
+/screenshots%202.jpg)
 
 ### Step 3 – PowerShell Execution
-![Step3](screenshots%203.jpg)
+![Step3](usecase-powershell-detection
+/screenshots%203.jpg)
 
 ### Step 4 –PowerShell Execution
-![Step4](screenshots%204.jpg)
+![Step4](usecase-powershell-detection
+/screenshots%204.jpg)
 
 ### Step 5 – Event 4688 Generated
-![Step5](screenshots%205.jpg)
+![Step5](usecase-powershell-detection
+/screenshots%205.jpg)
 
 ### Step 6 – Command Line Details
-![Step6](screenshots%206.jpg)
+![Step6](usecase-powershell-detection
+/screenshots%206.jpg)
