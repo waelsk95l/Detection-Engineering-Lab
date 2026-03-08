@@ -1,27 +1,28 @@
 # Case 2 – Encoded PowerShell Execution Detection
 
 ## Attack Description
-Attackers often use Base64 encoded PowerShell commands to evade detection and hide malicious scripts.
+
+Attackers often use Base64 encoded PowerShell commands to hide malicious activity and bypass security monitoring.
+
+Encoded commands make it harder for analysts to quickly understand the executed script.
 
 ## Lab Environment
-- Windows 10 target machine
-- Sysmon installed
-- Kali Linux attacker machine
+
+- Windows 10 Target Machine
+- Kali Linux Attacker Machine
+- Sysmon Installed
+- Windows Security Event Logs
 
 ## Attack Simulation
-Encoded PowerShell command execution using:
+
+The attacker executes an encoded PowerShell command:
 
 powershell -NoProfile -WindowStyle Hidden -EncodedCommand
 
+The command is Base64 encoded to hide the real payload.
+
 ## Detection Method
-Monitoring Windows Security Event ID 4688 for suspicious PowerShell command lines containing:
 
-- EncodedCommand
-- Hidden window style
-- NoProfile
+Detection is performed using Windows Security Event Logs.
 
-## Detection Rule
-Sigma rule used to detect suspicious PowerShell encoded execution.
-
-## Screenshots
-See screenshots in this folder.
+Relevant Event ID:
