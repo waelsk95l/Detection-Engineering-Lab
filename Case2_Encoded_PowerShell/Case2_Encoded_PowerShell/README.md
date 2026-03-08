@@ -63,6 +63,3 @@ detection:
       - EncodedCommand
       - powershell
 condition: selection
-
-## Screenshots
-See the attack execution and event logs in the screenshots included in this lab.
