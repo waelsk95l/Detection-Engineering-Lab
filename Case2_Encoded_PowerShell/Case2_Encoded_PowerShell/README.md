@@ -48,9 +48,12 @@ Security analysts should monitor suspicious PowerShell command lines containing:
 Technique: T1059.001 – PowerShell
 
 
+
+---
+
 ## Detection Rule
 
-Sigma rule example:
+Example Sigma rule:
 
 ```yaml
 title: Suspicious Encoded PowerShell Command
@@ -65,5 +68,6 @@ detection:
       - powershell
 condition: selection
 
-Screenshots
+## Screenshots
+
 See the attack execution and event logs in the screenshots included in this lab.
