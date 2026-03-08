@@ -47,10 +47,6 @@ Security analysts should monitor suspicious PowerShell command lines containing:
 
 Technique: T1059.001 – PowerShell
 
-
-
----
-
 ## Detection Rule
 
 Example Sigma rule:
@@ -69,5 +65,4 @@ detection:
 condition: selection
 
 ## Screenshots
-
 See the attack execution and event logs in the screenshots included in this lab.
