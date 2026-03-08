@@ -45,7 +45,7 @@ This attack can be detected by monitoring Windows Event ID 4688 and looking for 
 
 ### Step 1 – Encode PowerShell Command
 ![Step1](usecase-powershell-detection
-/screenshots%201.jpg)
+/ screenshots%201.jpg)
 
 ### Step 2 – Execute Encoded Command
 ![Step2](usecase-powershell-detection
