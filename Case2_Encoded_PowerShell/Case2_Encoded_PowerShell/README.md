@@ -62,4 +62,12 @@ detection:
     CommandLine|contains:
       - EncodedCommand
       - powershell
+
 condition: selection
+```
+
+
+
+## Lab Evidence
+
+See the attack execution and event logs in the screenshots included in this lab.
