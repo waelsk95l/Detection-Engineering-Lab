@@ -50,7 +50,7 @@ This attack can be detected by monitoring Windows Event ID 4688 and looking for 
 ![Step2](usecase-powershell-detection/screenshots2.jpg)
 
 ### Step 3 – PowerShell Execution
-![Step3](usecase-powershell-detection/screenshots3.jpg)
+![Step3](usecase-powershell-detection / screenshots3.jpg)
 
 ### Step 4 –PowerShell Execution
 ![Step4](usecase-powershell-detection/screenshots4.jpg)
