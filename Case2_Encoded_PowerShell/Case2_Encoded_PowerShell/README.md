@@ -25,4 +25,45 @@ The command is Base64 encoded to hide the real payload.
 
 Detection is performed using Windows Security Event Logs.
 
-Relevant Event ID:
+Relevant Event ID: 4688 – Process Creation
+
+
+Indicators:
+
+- PowerShell execution
+- EncodedCommand parameter
+- Hidden window style
+- NoProfile execution
+
+## Detection Logic
+
+Security analysts should monitor suspicious PowerShell command lines containing:
+
+- EncodedCommand
+- Hidden
+- NoProfile
+
+## MITRE ATT&CK
+
+Technique: T1059.001 – PowerShell
+
+
+## Detection Rule
+
+Sigma rule example:
+
+```yaml
+title: Suspicious Encoded PowerShell Command
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4688
+    CommandLine|contains:
+      - EncodedCommand
+      - powershell
+condition: selection
+
+Screenshots
+See the attack execution and event logs in the screenshots included in this lab.
