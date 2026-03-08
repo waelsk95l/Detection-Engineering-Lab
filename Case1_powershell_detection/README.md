@@ -1,4 +1,4 @@
-# Detection Engineering Lab
+Case1 Suspicious PowerShell Execution
 
 This lab demonstrates how to detect suspicious PowerShell activity using Windows Event Logs and Sysmon.
 
