@@ -1,0 +1,29 @@
+title: Suspicious Encoded Hidden PowerShell Command
+id: encoded-hidden-powershell
+status: experimental
+description: Detects PowerShell execution using encoded commands and hidden window style
+author: Wael SK
+date: 2026/03/10
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    EventID: 4688
+    CommandLine|contains:
+      - EncodedCommand
+      - -NoProfile
+      - Hidden
+
+condition: selection
+
+falsepositives:
+  - Administrative scripts
+
+level: high
+
+tags:
+  - attack.execution
+  - attack.t1059.001
