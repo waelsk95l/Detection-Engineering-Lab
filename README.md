@@ -50,4 +50,18 @@ T1059.001 – PowerShell
 - Check network connections
 - Determine if the activity is malicious
 - Isolate the host if required
-.
+
+# Detection Engineering Lab
+
+This repository contains practical detection engineering use cases based on Windows security logs and MITRE ATT&CK techniques.
+
+## Detection Use Cases
+
+| Use Case | Description | Technique |
+|--------|-------------|-----------|
+| Case1 – PowerShell Detection | Detect basic PowerShell execution | T1059.001 |
+| Case2 – Encoded PowerShell | Detect PowerShell encoded commands | T1059.001 |
+| Case3 – Suspicious Parent Process | Detect suspicious parent-child process relationships | T1059 |
+| Case4 – PowerShell Spawning Rundll32 | Detect LOLBin abuse via rundll32 | T1218 |
+| Case5 – Encoded Hidden PowerShell | Detect hidden encoded PowerShell execution | T1059.001 |
+
