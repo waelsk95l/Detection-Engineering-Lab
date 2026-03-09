@@ -67,7 +67,7 @@ ab Evidence
 
 
 3. Windows Security Event 4688 showing process creation
- !3[Event Log](screenshots3.jpg)
+   ![Event Log](screenshots3.jpg)
 
 
    
