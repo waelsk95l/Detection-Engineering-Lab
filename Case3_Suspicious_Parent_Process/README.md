@@ -59,12 +59,15 @@ condition: selection
 
 ab Evidence
 1. PowerShell launching cmd.exe
+ ![PwoerShell Execution](screenshots1.jpg)
 
    
 2. Command Prompt opened
+ 2[CMD Execution](screenshots2.jpg)
 
 
 3. Windows Security Event 4688 showing process creation
+ 3[Event Log](screenshots3.jpg)
 
 
    
