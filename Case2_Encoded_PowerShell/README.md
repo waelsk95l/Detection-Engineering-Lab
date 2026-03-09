@@ -65,6 +65,9 @@ detection:
 
 condition: selection
 ```
+The full Sigma rule is available in:
+
+sigma-rule.yml
 
 
 
