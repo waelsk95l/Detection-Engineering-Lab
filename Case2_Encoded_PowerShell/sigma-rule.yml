@@ -1,0 +1,28 @@
+title: Suspicious Encoded PowerShell Command
+id: encoded-powershell-detection
+status: experimental
+description: Detects PowerShell execution using encoded command which may indicate obfuscated or malicious activity
+author: Wael SK
+date: 2026/03/09
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    EventID: 4688
+    CommandLine|contains:
+      - EncodedCommand
+      - powershell
+
+  condition: selection
+
+falsepositives:
+  - Administrative scripts
+  - Automation tools
+
+level: medium
+tags:
+  - attack.execution
+  - attack.t1059.001
