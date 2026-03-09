@@ -59,9 +59,8 @@ This repository contains practical detection engineering use cases based on Wind
 
 | Use Case | Description | Technique |
 |--------|-------------|-----------|
-| Case1 – PowerShell Detection | Detect basic PowerShell execution | T1059.001 |
-| Case2 – Encoded PowerShell | Detect PowerShell encoded commands | T1059.001 |
-| Case3 – Suspicious Parent Process | Detect suspicious parent-child process relationships | T1059 |
-| Case4 – PowerShell Spawning Rundll32 | Detect LOLBin abuse via rundll32 | T1218 |
-| Case5 – Encoded Hidden PowerShell | Detect hidden encoded PowerShell execution | T1059.001 |
-
+| [Case1](Case1_powershell_detection) | Detect PowerShell execution | T1059.001 |
+| [Case2](Case2_Encoded_PowerShell) | Detect encoded PowerShell commands | T1059.001 |
+| [Case3](Case3_Suspicious_Parent_Process) | Detect suspicious parent-child processes | T1059 |
+| [Case4](Case4_PowerShell_Rundll32) | Detect rundll32 LOLBin abuse | T1218 |
+| [Case5](Case5_Encoded_Hidden_PowerShell) | Detect hidden encoded PowerShell execution | T1059.001 |
