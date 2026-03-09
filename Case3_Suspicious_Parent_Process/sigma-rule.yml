@@ -1,0 +1,22 @@
+title: Suspicious PowerShell Spawning CMD
+id: powershell-cmd-detection
+status: experimental
+description: Detects PowerShell spawning cmd.exe which may indicate suspicious activity
+author: Wael SK
+date: 2026/03/09
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    EventID: 4688
+    ParentProcessName|contains:
+      - powershell.exe
+    NewProcessName|contains:
+      - cmd.exe
+
+condition: selection
+
+level: medium
