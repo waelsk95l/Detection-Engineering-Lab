@@ -64,5 +64,4 @@ This repository contains practical detection engineering use cases based on Wind
 | [Case3](Case3_Suspicious_Parent_Process) | Detect suspicious parent-child processes | T1059 |
 | [Case4](Case4_PowerShell_Rundll32) | Detect rundll32 LOLBin abuse | T1218 |
 | [Case5](Case5_Encoded_Hidden_PowerShell) | Detect hidden encoded PowerShell execution | T1059.001 |
-
-| [Case6](Case6_PowerShell_Download_Payload) | Detect PowerShell downloading files from the internet | T1105 |
+| [Case6](Case6%20%E2%80%93%20PowerShell%20Download%20Payload) | Detect PowerShell downloading files from the internet | T1105 |
