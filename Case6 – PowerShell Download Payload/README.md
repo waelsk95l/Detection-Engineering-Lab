@@ -75,25 +75,25 @@ http
 ## Screenshots
 
 ### 1 - Creating payload file on Kali
-![Kali Payload](screenshot1.jpg)
+![Kali Payload](screenshots1.jpg)
 
 ### 2 - Writing payload content
-![Payload Content](screenshot2.jpg)
+![Payload Content](screenshots2.jpg)
 
 ### 3 - Starting HTTP Server on Kali
-![HTTP Server](screenshot3.jpg)
+![HTTP Server](screenshots3.jpg)
 
 ### 4 - PowerShell Download Command
-![PowerShell Command](screenshot4.jpg)
+![PowerShell Command](screenshots4.jpg)
 
 ### 5 - Kali Receiving the Request
-![Kali Request](screenshot5.jpg)
+![Kali Request](screenshots5.jpg)
 
 ### 6 - Payload Downloaded on Windows
-![Downloaded File](screenshot6.jpg)
+![Downloaded File](screenshots6.jpg)
 
 ### 7 - Event 4688 Showing PowerShell Invoke-WebRequest
-![Event4688](screenshot7.jpg)
+![Event4688](screenshots7.jpg)
 
 ---
 
