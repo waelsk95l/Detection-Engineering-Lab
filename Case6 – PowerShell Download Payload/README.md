@@ -99,3 +99,25 @@ http
 
 ## Sigma Detection Rule
 
+title: PowerShell Download Payload
+status: experimental
+description: Detect PowerShell downloading files from the internet
+author: Wael SK
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    EventID: 4688
+    CommandLine|contains:
+      - Invoke-WebRequest
+      - http
+
+condition: selection
+
+falsepositives:
+  - Administrative scripts
+
+level: medium
+
