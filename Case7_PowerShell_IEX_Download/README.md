@@ -123,7 +123,7 @@ Net.WebClient
 
 ### 1. Creating PowerShell Payload in Kali
 
-![Creating payload](screenshots/1.jpg)
+![Creating payload](screenshots1.jpg)
 
 This screenshot shows the creation of the PowerShell payload file `payload.ps1` on the Kali Linux attacker machine using the nano editor.
 
@@ -131,7 +131,7 @@ This screenshot shows the creation of the PowerShell payload file `payload.ps1` 
 
 ### 2. Payload Script Content
 
-![Payload content](screenshots/2.jpg)
+![Payload content](screenshots2.jpg)
 
 This image displays the content of the PowerShell payload script that will be downloaded and executed on the Windows target system.
 
@@ -139,7 +139,7 @@ This image displays the content of the PowerShell payload script that will be do
 
 ### 3. Starting HTTP Server
 
-![HTTP Server](screenshots/3.jpg)
+![HTTP Server](screenshots3.jpg)
 
 The attacker machine starts a Python HTTP server on port **8000** to host the malicious PowerShell script.
 
@@ -147,7 +147,7 @@ The attacker machine starts a Python HTTP server on port **8000** to host the ma
 
 ### 4. Executing the Attack
 
-![Attack Execution](screenshots/4.jpg)
+![Attack Execution](screenshots4.jpg)
 
 The PowerShell command uses **IEX and Net.WebClient DownloadString** to retrieve and execute the remote script directly in memory.
 
@@ -163,7 +163,7 @@ The Kali server logs show a **GET request** from the Windows target machine requ
 
 ### 6. Event ID 4688 Detection
 
-![Event 4688](screenshots/6.jpg)
+![Event 4688](screenshots6.jpg)
 
 Windows Security Logs capture **Event ID 4688**, indicating a new process creation related to PowerShell execution.
 
@@ -171,7 +171,7 @@ Windows Security Logs capture **Event ID 4688**, indicating a new process creati
 
 ### 7. Additional Event Log Evidence
 
-![Event Details](screenshots/7.jpg)
+![Event Details](screenshots7.jpg)
 
 This screenshot shows additional event log details that help security analysts investigate the suspicious PowerShell activity.
 
