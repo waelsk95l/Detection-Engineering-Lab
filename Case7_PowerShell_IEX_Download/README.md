@@ -155,7 +155,7 @@ The PowerShell command uses **IEX and Net.WebClient DownloadString** to retrieve
 
 ### 5. HTTP Request Received
 
-![Server Request](screenshots/5.jpg)
+![Server Request](screenshots5.jpg)
 
 The Kali server logs show a **GET request** from the Windows target machine requesting the payload script.
 
