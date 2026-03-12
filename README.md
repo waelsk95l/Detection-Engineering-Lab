@@ -61,7 +61,7 @@ Each use case includes:
 | [Case5 – Encoded Hidden PowerShell](Case5_Encoded_Hidden_PowerShell) | Detect hidden PowerShell execution using encoded commands | T1027 |
 | [Case6 – PowerShell Download Payload](Case6_PowerShell_Download_Payload) | HTTP Payload Retrieval | T1105 |
 | [Case7 - PowerShell Download Cradle](Case7_PowerShell_IEX_Download) | IEX + Net.WebClient | T1059 |
-| [Case8 - Encoded PowerShell Download](Case8_Encoded_PowerShell_Download) | Obfuscated Execution | T1027  T1105 |
+| [Case8 - Encoded PowerShell Download](Case8_Encoded_PowerShell_Download) | Obfuscated Execution |T1059.001 - T1027 - T1105  |
 
 ---
 
@@ -147,6 +147,11 @@ Email: waelsk95@gmail.com
 
 ---
 
+Copyright (c) 2026 Wael Saad Kamal
+
+This project is created for educational and detection engineering practice.
+
+---
 # Goal of This Project
 
 The goal of this project is to build a **Detection Engineering portfolio** demonstrating practical SOC investigation and threat detection skills.
