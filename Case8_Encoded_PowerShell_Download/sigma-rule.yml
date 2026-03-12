@@ -1,0 +1,36 @@
+title: Encoded PowerShell Execution
+id: encoded-powershell-detection
+status: experimental
+description: Detects PowerShell execution using encoded commands
+author: Wael SK
+date: 2026/03/13
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    EventID: 4688
+    NewProcessName|endswith: '\powershell.exe'
+    CommandLine|contains:
+      - 'EncodedCommand'
+
+  condition: selection
+
+fields:
+  - EventID
+  - NewProcessName
+  - CommandLine
+  - ParentProcessName
+
+falsepositives:
+  - Administrative automation scripts
+  - Management tools
+
+level: high
+
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1027
