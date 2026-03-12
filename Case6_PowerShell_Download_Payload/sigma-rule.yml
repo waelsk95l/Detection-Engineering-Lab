@@ -1,0 +1,40 @@
+title: PowerShell Download Payload
+id: powershell-download-payload
+status: experimental
+description: Detects PowerShell downloading a file from a remote HTTP server using Invoke-WebRequest
+author: Wael SK
+date: 2026/03/11
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    EventID: 4688
+    NewProcessName|endswith: '\powershell.exe'
+    CommandLine|contains:
+      - 'Invoke-WebRequest'
+      - 'http://'
+      - '-OutFile'
+
+  condition: selection
+
+fields:
+  - EventID
+  - NewProcessName
+  - CommandLine
+  - ParentProcessName
+
+falsepositives:
+  - Administrative scripts
+  - Software deployment tools
+  - Automation activity
+
+level: high
+
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.command-and-scripting-interpreter
+  - attack.t1105
