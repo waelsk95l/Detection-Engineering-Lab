@@ -34,7 +34,18 @@ Logs monitored
 Windows Security Log
 Event ID 4688
 ```
+# Detection Engineering Lab
 
+This repository contains practical detection engineering use cases focused on Windows security monitoring.
+
+The project demonstrates how attackers abuse PowerShell and system binaries, and how these behaviors can be detected using Windows Event Logs and Sigma rules.
+
+Each use case includes:
+
+- Attack simulation
+- Detection logic
+- Sigma detection rule
+- Event log evidence
 ---
 
 # Detection Use Cases
