@@ -2,7 +2,7 @@
 
 ## Overview
 
-This lab demonstrates a common PowerShell attack technique where an attacker downloads and executes a remote script directly in memory using `IEX` and `Net.WebClient`.
+This lab demonstrates a common PowerShell attack technique where an attacker downloads and executes a remote script directly in memory using `IEX` and `Net.WebClient` .
 
 This technique is frequently used by real-world malware and red team tools.
 
