@@ -1,6 +1,19 @@
-# SOC-Detection-Lab
-## Phase1
-### Detection Use Cases
+# Phase 1 – PowerShell Detection
+
+This phase focuses on detecting PowerShell-based attacks using Windows Security Logs (Event ID 4688).
+
+The following attack scenarios are covered:
+
+- PowerShell Execution
+- Encoded PowerShell
+- Suspicious Parent Process
+- LOLBins Abuse (rundll32)
+- Hidden Execution
+- Payload Download
+- Download Cradle
+- Encoded Payload Execution
+
+## Detection Use Cases
 
 | Case | Technique | Detection Focus |
 |-----|-----|-----|
