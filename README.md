@@ -47,8 +47,8 @@ Each use case includes:
 - Sigma detection rule
 - Event log evidence
 ---
-
-# Detection Use Cases
+# Phase1
+## Detection Use Cases
 
 | Case | Technique | Detection Focus |
 |-----|-----|-----|
@@ -116,7 +116,8 @@ Sigma rules help translate detection logic into multiple SIEM platforms.
 # Project Structure
 
 ```
-SOC-Detection-Lab
+# SOC-Detection-Lab
+## Phase1
 │
 ├── Case-1-PowerShell-Execution
 ├── Case-2-Encoded-PowerShell
