@@ -1,6 +1,7 @@
-SOC-Detection-Lab
-│
-├── Phase1
+# SOC-Detection-Lab
+## Phase1
+### Detection Use Cases
+
 | Case | Technique | Detection Focus |
 |-----|-----|-----|
 | Use Case | Description | MITRE Technique |
