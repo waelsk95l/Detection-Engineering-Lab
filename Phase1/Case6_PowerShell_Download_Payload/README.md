@@ -105,7 +105,7 @@ sigma-rule.yml
 
 ### 1. Creating payload file on Kali
 
-![Screenshot 1](screenshot1.jpg)
+![Screenshot 1](screenshots1.jpg)
 
 This screenshot shows the creation of the payload file on the Kali attacker machine.
 
@@ -113,7 +113,7 @@ This screenshot shows the creation of the payload file on the Kali attacker mach
 
 ### 2. Writing payload content
 
-![Screenshot 2](screenshot2.jpg)
+![Screenshot 2](screenshots2.jpg)
 
 This screenshot shows the content written inside the payload file.
 
@@ -121,7 +121,7 @@ This screenshot shows the content written inside the payload file.
 
 ### 3. Starting Python HTTP server
 
-![Screenshot 3](screenshot3.jpg)
+![Screenshot 3](screenshots3.jpg)
 
 The Python HTTP server is started on Kali to host the payload file.
 
@@ -129,7 +129,7 @@ The Python HTTP server is started on Kali to host the payload file.
 
 ### 4. Executing PowerShell download command
 
-![Screenshot 4](screenshot4.jpg)
+![Screenshot 4](screenshots4.jpg)
 
 The Windows target runs `Invoke-WebRequest` to download the payload from the Kali server.
 
@@ -137,7 +137,7 @@ The Windows target runs `Invoke-WebRequest` to download the payload from the Kal
 
 ### 5. Kali server receiving HTTP request
 
-![Screenshot 5](screenshot5.jpg)
+![Screenshot 5](screenshots5.jpg)
 
 The Kali HTTP server logs show the inbound GET request from the Windows target.
 
@@ -145,7 +145,7 @@ The Kali HTTP server logs show the inbound GET request from the Windows target.
 
 ### 6. Downloaded payload on Windows
 
-![Screenshot 6](screenshot6.jpg)
+![Screenshot 6](screenshots6.jpg)
 
 The payload file appears successfully in `C:\Temp` on the Windows system.
 
@@ -153,6 +153,6 @@ The payload file appears successfully in `C:\Temp` on the Windows system.
 
 ### 7. Event ID 4688 showing PowerShell download activity
 
-![Screenshot 7](screenshot7.jpg)
+![Screenshot 7](screenshots7.jpg)
 
 Windows Security Event ID 4688 captures the PowerShell command line used in the download activity.
