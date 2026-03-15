@@ -1,1 +1,1 @@
-
+event.code:10 AND winlog.event_data.TargetImage:*lsass.exe
