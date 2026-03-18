@@ -1,7 +1,0 @@
-{
-  "EventID": 10,
-  "SourceImage": "C:\\Users\\Public\\malware.exe",
-  "TargetImage": "C:\\Windows\\System32\\lsass.exe",
-  "GrantedAccess": "0x1fffff",
-  "CallTrace": "UNKNOWN"
-}
