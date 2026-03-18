@@ -1,10 +1,12 @@
-# Case 9 – LSASS Access Detection
+# Case 9 – LSASS Access Detection (Real-Time SOC Lab)
 
 ## Overview
 
-This use case focuses on detecting suspicious access to **lsass.exe**, a critical Windows process responsible for handling authentication and storing sensitive credentials.
+This use case focuses on detecting suspicious access to lsass.exe, a critical Windows process responsible for authentication and credential storage.
 
-Attackers often target LSASS to extract credentials using credential dumping techniques.
+In modern cyber attacks, adversaries attempt to access LSASS memory to extract credentials using techniques such as credential dumping.
+
+This lab is built using a real-time SOC architecture, where logs are collected live from a Windows endpoint using Sysmon and forwarded to Splunk SIEM.
 
 ---
 
@@ -12,48 +14,78 @@ Attackers often target LSASS to extract credentials using credential dumping tec
 
 Detect unauthorized or suspicious process access to:
 
-```text
 lsass.exe
-```
 
-Such activity may indicate:
+## Such activity may indicate:
 
-- Credential dumping
-- Privilege escalation
-- Post-exploitation behavior
+- Credential Dumping
+- Privilege Escalation
+- Post-Exploitation Activity
 
 ---
 
-## Attack Simulation
+## SOC Architecture
 
-A simulated malicious process attempts to access LSASS with high privileges.
+This project uses a real-world SOC pipeline:
 
-Example:
+Windows Endpoint (Sysmon)
+        ↓
+Splunk Universal Forwarder
+        ↓
+Splunk SIEM (Port 9997)
+        ↓
+Detection Rules + Alerts + Dashboards
 
-```text
-malware.exe → lsass.exe
-```
+---
+
+## Data Flow
+
+1. Sysmon collects system activity (Process, Network, File, Access)
+2. Logs are sent via Splunk Universal Forwarder
+3. Splunk ingests logs in real-time
+4. Detection rules analyze events
+5. Alerts and dashboards visualize suspicious activity
+
+---
+
+## Why Live SOC Lab?
+
+Unlike static sample logs, this lab is based on real-time telemetry, providing:
+
+- Continuous log ingestion
+- Real attack visibility
+- Practical SOC analyst workflow
+- Detection validation in real environments
 
 ---
 
 ## Log Source
 
-```text
 Sysmon
 Event ID: 10
 Process Access
-```
+
+---
+
+## Attack Simulation
+
+This lab supports real-time simulation of suspicious behavior such as:
+
+Unknown process → lsass.exe
+
+or PowerShell-based activity that may lead to credential access attempts.
 
 ---
 
 ## Key Detection Indicators
 
-- Access to `lsass.exe`
-- Suspicious process (unknown executable)
+- Access to "lsass.exe"
+- Suspicious or unknown process
 - High privilege access rights:
-  - `0x1fffff`
-  - `0x1010`
-  - `0x1410`
+  - "0x1fffff"
+  - "0x1010"
+  - "0x1410"
+- Non-standard parent process
 
 ---
 
@@ -66,83 +98,125 @@ Process Access
 
 ## Detection Logic
 
-This detection is based on identifying:
+Detection is based on identifying:
 
-- Target process = `lsass.exe`
-- Suspicious access mask values
-- Unknown or non-system source process
+- Target process = "lsass.exe"
+- EventCode = 10 (Process Access)
+- Suspicious access masks
+- Non-system processes interacting with LSASS
+
+---
+
+## Splunk Detection Queries
+
+LSASS Access Detection
+
+index=* EventCode=10 TargetImage="*lsass.exe"
+
+---
+
+## Suspicious Process + LSASS
+
+index=* EventCode=10 TargetImage="*lsass.exe"
+| stats count by SourceImage, TargetImage, GrantedAccess
+
+---
+
+## PowerShell Suspicious Activity
+
+index=* EventCode=1 (CommandLine="*powershell*" OR CommandLine="*IEX*" OR CommandLine="*DownloadString*")
+
+---
+
+## Process Creation Monitoring
+
+index=* EventCode=1
+
+---
+
+## Network Activity Monitoring
+
+index=* EventCode=3
+
+---
+
+## File Creation Monitoring
+
+index=* EventCode=11
 
 ---
 
 ## Sigma Rule
 
-See:
-
-```text
-sigma-rule.yml
-```
-
----
-
-## SIEM Queries
-
-### Elastic
-
-```text
-event.code:10 AND winlog.event_data.TargetImage:*lsass.exe
-```
-
-### Splunk
-
-```spl
-index=sysmon EventCode=10 TargetImage="*lsass.exe"
-```
+title: Suspicious LSASS Access
+id: lsass-access-detection
+status: experimental
+description: Detects suspicious access to LSASS process
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 10
+    TargetImage|endswith: 'lsass.exe'
+  condition: selection
+level: high
+tags:
+  - attack.credential_access
+  - attack.t1003
+  - attack.t1003.001
 
 ---
 
-## Sample Log
+## Alerting
 
-See:
+Alerts are triggered in Splunk when:
 
-```text
-sample-log.json
-```
+- LSASS access is detected
+- Suspicious command-line activity appears
+- Abnormal process behavior is observed
+
+## Example alert:
+
+[ALERT] Suspicious LSASS access detected!
 
 ---
 
-## Automation
+## SOC Dashboard
 
-This use case includes Python-based detection:
+The dashboard provides visibility into:
 
-- Log parser
-- Detection engine
-- Alert generator
+- Process Activity (EventCode=1)
+- Network Connections (EventCode=3)
+- File Creations (EventCode=11)
+- Suspicious Commands (PowerShell)
+- LSASS Access Events
+
+---
+
+## Screenshots
+
+This lab includes real screenshots from:
+
+- Sysmon logs (Windows)
+- Splunk search results
+- Detection queries
+- SOC dashboard
 
 Located in:
 
-```text
-Phase2/Automation
-```
-
----
-
-## Detection Output
-
-When detection conditions are met:
-
-```text
-[ALERT] Suspicious LSASS access detected!
-```
+screenshots/
 
 ---
 
 ## Analyst Investigation Steps
 
-1. Identify source process
-2. Check process path and hash
-3. Analyze parent process
-4. Verify if activity is legitimate (EDR/AV) or malicious
+1. Identify source process accessing LSASS
+2. Verify process path and legitimacy
+3. Analyze parent process chain
+4. Check command-line arguments
 5. Investigate lateral movement or persistence
+6. Correlate with other events (network/file activity)
 
 ---
 
@@ -150,31 +224,30 @@ When detection conditions are met:
 
 - Antivirus software
 - EDR solutions
-- Security tools accessing LSASS
+- Legitimate security tools
 
 ---
 
-## Severity
+Severity
 
-```text
 High
-```
 
 ---
 
 ## Conclusion
 
-Access to LSASS is highly sensitive and often associated with credential theft.
+Access to LSASS is highly sensitive and often linked to credential theft.
 
-This detection helps SOC analysts identify and respond to potential credential access attempts early.
+This real-time detection lab enables SOC analysts to monitor, detect, and investigate credential access attempts using live telemetry and professional SIEM workflows.
 
 ---
 
 ## Skills Demonstrated
 
-- Sysmon log analysis
-- Detection engineering
-- Sigma rule creation
-- SIEM query development
-- Python-based alerting
-- Threat investigation
+- Real-Time SOC Monitoring
+- Sysmon Log Analysis
+- Splunk SIEM Usage
+- Detection Engineering
+- Sigma Rule Development
+- Threat Hunting
+- Incident Investigation
