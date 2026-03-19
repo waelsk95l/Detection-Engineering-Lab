@@ -40,3 +40,6 @@ Includes:
 ---
 
 ## Project Structure
+
+Phase2/ 
+├── Automation/ ├──       Case9_LSASS_Access_Detection/ ├── Dashboards/ ├── Detection-Rules/ ├── Reports/ └── README.md
