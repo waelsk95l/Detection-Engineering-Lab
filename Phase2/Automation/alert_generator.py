@@ -1,9 +1,6 @@
-from log_parser import load_logs
-from detection_engine import detect_lsass_access
+def main():
+    print("[INFO] Phase 2 automation module placeholder.")
+    print("[INFO] Real-time alerting logic will be expanded in Case 10.")
 
-log = load_logs("../Case9_LSASS_Access_Detection/sample-log.json")
-
-if detect_lsass_access(log):
-    print("[ALERT] Suspicious LSASS access detected!")
-else:
-    print("[OK] No suspicious activity.")
+if __name__ == "__main__":
+    main()
