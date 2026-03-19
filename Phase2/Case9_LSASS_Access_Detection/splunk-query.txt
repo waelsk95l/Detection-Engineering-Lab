@@ -1,1 +1,0 @@
-index=sysmon EventCode=10 TargetImage="*lsass.exe" GrantedAccess IN ("0x1fffff","0x1010","0x1410")
