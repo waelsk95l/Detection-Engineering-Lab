@@ -1,23 +1,13 @@
-# Incident Report – LSASS Access Detection
+---
 
-## Summary
-A suspicious process attempted to access lsass.exe with high privileges.
+## Notes
 
-## Details
-- Source Process: malware.exe
-- Target Process: lsass.exe
-- Access Mask: 0x1fffff
+- Case 9 is implemented as a real SOC detection scenario using live logs.
+- Automation components are prepared and will be expanded in future use cases.
+- Future phases will include advanced detection automation and threat hunting workflows.
 
-## Analysis
-This behavior is commonly associated with credential dumping techniques.
+---
 
-## MITRE Mapping
-T1003 – Credential Dumping
+## Author
 
-## Recommendation
-- Investigate the source binary
-- Check for persistence mechanisms
-- Perform memory analysis if needed
-
-## Conclusion
-Potential credential access attempt detected.
+WAEL SK – Detection Engineering Journey 🚀
