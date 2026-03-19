@@ -1,0 +1,4 @@
+index=* EventCode=10 TargetImage="*lsass.exe"
+| where GrantedAccess IN ("0x1fffff","0x1010","0x1410")
+| stats count by SourceImage, TargetImage, GrantedAccess, Computer
+| sort -count
