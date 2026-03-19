@@ -234,6 +234,34 @@ High
 
 ---
 
+## Screenshots
+
+### Sysmon Service and Recent Logs
+![Sysmon Logs](screenshots/sysmon_logs.jpg)
+
+### Splunk Universal Forwarder Running
+![Forwarder Running](screenshots/forwarder_running.jpg)
+
+### PowerShell Attack Code Test
+![PowerShell Attack Code Test](screenshots/powershell_attack_code_test.jpg)
+
+### PowerShell Detection in Splunk
+![PowerShell Attack](screenshots/powershell_attack.jpg)
+
+### Process Creation Events (EventCode=1)
+![Splunk Event 1](screenshots/splunk_event1.jpg)
+
+### Network Connection Events (EventCode=3)
+![Splunk Event 3](screenshots/splunk_event3.jpg)
+
+### File Creation Events (EventCode=11)
+![Splunk Event 11](screenshots/splunk_event11.jpg)
+
+### LSASS Access Detection (EventCode=10)
+![Splunk LSASS Detection](screenshots/splunk_lsass.jpg)
+
+----
+
 ## Conclusion
 
 Access to LSASS is highly sensitive and often linked to credential theft.
