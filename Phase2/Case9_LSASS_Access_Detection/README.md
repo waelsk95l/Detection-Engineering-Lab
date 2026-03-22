@@ -368,3 +368,10 @@ This lab demonstrates real SOC capabilities using:
  - Event investigation
  - Multi-platform validation (Splunk     +Elastic)
 
+## Detection Dashboard
+
+This use case is supported by a centralized detection dashboard.
+
+View dashboard:
+👉 ../../Dashboards/LSASS_Detection_Dashboard.md
+
