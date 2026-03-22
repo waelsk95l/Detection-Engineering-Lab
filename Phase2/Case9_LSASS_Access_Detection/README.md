@@ -279,3 +279,83 @@ This real-time detection lab enables SOC analysts to monitor, detect, and invest
 - Sigma Rule Development
 - Threat Hunting
 - Incident Investigation
+
+---
+
+## Elastic Validation Lab
+
+In addition to Splunk validation, this use case was also implemented and tested using the Elastic Stack.
+
+### Lab Environment
+
+- Kali Linux (Elasticsearch + Kibana)
+- Windows 10 Target Machine
+- Sysmon (Event Logging)
+- Winlogbeat (Log Forwarding)
+
+---
+
+### Objective
+
+Detect suspicious access to the LSASS process using Elastic SIEM.
+
+---
+
+### Data Flow
+
+Windows (Sysmon) → Winlogbeat → Elasticsearch → Kibana
+
+---
+
+### Detection Query (KQL)
+
+```
+kql
+event.code:10 AND winlog.event_data.TargetImage:"*lsass.exe"
+
+`````
+
+### Detection Result 
+The query successfully detected LSASS access activity.
+Key indicators observed:
+ - Event ID: 10 (ProcessAccess)
+ - TargetImage:       C:\Windows\System32\lsass.exe
+ - Source User: NT AUTHORITY\SYSTEM
+ - Granted Access: 0x2000
+   
+This confirms visibility into sensitive credential access behavior.
+
+## Elastic Lab Screenshots:
+1. Elastic Installation
+�
+2. Elasticsearch Running
+�
+3. Kibana Login
+�
+4. Kibana Home Dashboard
+�
+5. LSASS Process Verification (Windows)
+�
+6. Winlogbeat Index Pattern
+�
+7. Logs in Kibana
+�
+8. LSASS Detection Query
+�
+9. Detection Result (JSON Evidence)
+�
+
+### Analyst Notes
+- LSASS access events were successfully captured using Sysmon Event ID 10.
+- Detection was validated in Kibana using real log ingestion.
+- Some fields like SourceImage may not always appear depending on event structure.
+- GrantedAccess value helps determine the level of access to LSASS.
+
+### Conclusion
+Elastic Stack successfully detected LSASS access activity, providing visibility into potential credential access techniques.
+This lab demonstrates real SOC capabilities using:
+ - Log ingestion
+ - Detection queries
+ - Event investigation
+ - Multi-platform validation (Splunk     +Elastic)
+
