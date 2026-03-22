@@ -129,5 +129,10 @@ It demonstrates end-to-end SOC capabilities including:
  - Threat analysis
  - Multi-platform validation (Elastic + Splunk)
 
+## Related Use Case
+
+This dashboard is based on the following lab:
+
+👉 ../Case9_LSASS_Access_Detection/
 
 ```
