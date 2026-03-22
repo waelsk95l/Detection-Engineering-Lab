@@ -19,3 +19,5 @@ This detection is mapped to MITRE ATT&CK T1003.001
 
 - Splunk SIEM
 - Elastic Stack (Elasticsearch + Kibana + Winlogbeat)
+
+This use case was validated in both Splunk and Elastic environments using live Sysmon telemetry.
