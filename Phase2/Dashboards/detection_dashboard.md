@@ -124,10 +124,10 @@ This detection successfully identifies LSASS access behavior using real-time log
 
 It demonstrates end-to-end SOC capabilities including:
 
-Log collection
-Detection engineering
-Threat analysis
-Multi-platform validation (Elastic + Splunk)
+ - Log collection
+ - Detection engineering
+ - Threat analysis
+ - Multi-platform validation (Elastic + Splunk)
 
 
 ```
