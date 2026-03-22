@@ -326,24 +326,33 @@ Key indicators observed:
 This confirms visibility into sensitive credential access behavior.
 
 ## Elastic Lab Screenshots:
+
 1. Elastic Installation
-�
+![Elastic Installation](screenshots/01_elastic_installation.jpg)
+
 2. Elasticsearch Running
-�
+![Elasticsearch Running](screenshots/02_elastic_running.jpg)
+
 3. Kibana Login
-�
+![Kibana Login](screenshots/03_kibana_login.jpg)
+
 4. Kibana Home Dashboard
-�
+![Kibana Home](screenshots/04_kibana_home.jpg)
+
 5. LSASS Process Verification (Windows)
-�
+![LSASS Process](screenshots/05_lsass_process.jpg)
+
 6. Winlogbeat Index Pattern
-�
+![Index Pattern](screenshots/06_index_pattern_winlogbeat.jpg)
+
 7. Logs in Kibana
-�
+![Logs View](screenshots/07_logs_view_kibana.jpg)
+
 8. LSASS Detection Query
-�
+![LSASS Query](screenshots/08_lsass_query.jpg)
+
 9. Detection Result (JSON Evidence)
-�
+![Detection Result](screenshots/09_detection_result.jpg)
 
 ### Analyst Notes
 - LSASS access events were successfully captured using Sysmon Event ID 10.
