@@ -14,3 +14,8 @@ Investigation Focus:
 - Frequency of access
 
 This detection is mapped to MITRE ATT&CK T1003.001
+
+## Validation Platforms
+
+- Splunk SIEM
+- Elastic Stack (Elasticsearch + Kibana + Winlogbeat)
