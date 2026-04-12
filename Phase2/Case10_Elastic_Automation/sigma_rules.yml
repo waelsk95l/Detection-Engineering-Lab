@@ -1,1 +1,35 @@
+title: Suspicious PowerShell Execution
+id: powershell-suspicious-execution
+status: experimental
+description: Detects suspicious PowerShell execution with stealth or abuse indicators
+author: Wael Saad Kamal
+date: 2026/03/22
 
+logsource:
+  product: windows
+  category: process_creation
+
+detection:
+  selection:
+    Image|endswith: '\powershell.exe'
+  keywords:
+    CommandLine|contains:
+      - '-nop'
+      - 'hidden'
+      - 'IEX'
+      - 'enc'
+      - 'DownloadString'
+  condition: selection and keywords
+
+falsepositives:
+  - Administrative PowerShell usage
+  - Internal automation scripts
+  - Security team testing
+
+level: high
+
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1027
+  - attack.t1105
