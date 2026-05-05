@@ -1,5 +1,5 @@
 title: Suspicious PowerShell Execution
-id: powershell-suspicious-execution
+id: suspicious-powershell-execution
 status: experimental
 description: Detects suspicious PowerShell execution with stealth or abuse indicators
 author: Wael Saad Kamal
@@ -22,9 +22,9 @@ detection:
   condition: selection and keywords
 
 falsepositives:
-  - Administrative PowerShell usage
+  - Administrative PowerShell activity
   - Internal automation scripts
-  - Security team testing
+  - Security testing in lab
 
 level: high
 
