@@ -1,1 +1,3 @@
+event.code:1 AND process.name:powershell.exe AND process.command_line:(*nop* OR *hidden* OR *IEX* OR *enc* OR *DownloadString*)
 
+event.code:1 AND process.name:(powershell.exe OR pwsh.exe)
