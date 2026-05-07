@@ -139,7 +139,7 @@ Winlogbeat successfully forwarding logs to Elasticsearch.
 
 Basic PowerShell search query in Kibana Discover.
 
-![PowerShell Basic Query](screenshots/powershell_basic_query.jpg)
+![PowerShell Basic Query](screenshots/powershell_basic_query.jpg.jpg)
 
 ---
 
@@ -147,7 +147,7 @@ Basic PowerShell search query in Kibana Discover.
 
 Kibana query filtering suspicious PowerShell activity.
 
-![Suspicious PowerShell Query](screenshots/suspicious_powershell_query.jpg)
+![Suspicious PowerShell Query](screenshots/suspicious_powershell_query.jpg.jpg)
 
 ---
 
@@ -155,7 +155,7 @@ Kibana query filtering suspicious PowerShell activity.
 
 Detailed PowerShell event information in Kibana.
 
-![Event Details](screenshots/event_details.jpg)
+![Event Details](screenshots/event_details.jpg.jpg)
 
 ---
 
@@ -163,7 +163,7 @@ Detailed PowerShell event information in Kibana.
 
 Suspicious PowerShell execution using DownloadString and IEX.
 
-![PowerShell Test Command 1](screenshots/powershell_test_command_1.jpg)
+![PowerShell Test Command 1](screenshots/powershell_test_command_1.jpg.jpg)
 
 ---
 
@@ -171,7 +171,7 @@ Suspicious PowerShell execution using DownloadString and IEX.
 
 Encoded PowerShell execution using `-enc`.
 
-![PowerShell Test Command 2](screenshots/powershell_test_command_2.jpg)
+![PowerShell Test Command 2](screenshots/powershell_test_command_2.jpg.jpg)
 
 ---
 
@@ -179,7 +179,7 @@ Encoded PowerShell execution using `-enc`.
 
 PowerShell process creation logs visible in Kibana Discover.
 
-![Kibana Discover Event](screenshots/kibana_discover_eventcode1.jpg)
+![Kibana Discover Event](screenshots/kibana_discover_eventcode1.jpg.jpg)
 
 ---
 
@@ -187,7 +187,7 @@ PowerShell process creation logs visible in Kibana Discover.
 
 Python automation successfully detecting suspicious PowerShell activity.
 
-![Detection Result](screenshots/detection_result.jpg)
+![Detection Result](screenshots/detection_result.jpg.jpg)
 
 ---
 
