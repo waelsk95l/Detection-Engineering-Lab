@@ -15,6 +15,7 @@ es = Elasticsearch(
     request_timeout=30
 )
 
+# Test connection
 try:
     info = es.info()
     print("[OK] Connected to Elasticsearch")
@@ -24,68 +25,34 @@ except Exception as e:
     print(e)
     exit()
 
+# 🔥 Detection Query (ONLY useful events)
 query = {
-    "query": {
-        "bool": {
-            "must": [
-                {
-                    "match": {
-                        "process.name": "powershell.exe"
-                    }
+    "bool": {
+        "must": [
+            {
+                "match": {
+                    "process.name": "powershell.exe"
                 }
-            ],
-            "should": [
-                {
-                    "match_phrase": {
-                        "process.command_line": "-enc"
-                    }
-                },
-                {
-                    "match_phrase": {
-                        "process.command_line": "EncodedCommand"
-                    }
-                },
-                {
-                    "match_phrase": {
-                        "process.command_line": "-nop"
-                    }
-                },
-                {
-                    "match_phrase": {
-                        "process.command_line": "NoProfile"
-                    }
-                },
-                {
-                    "match_phrase": {
-                        "process.command_line": "IEX"
-                    }
-                },
-                {
-                    "match_phrase": {
-                        "process.command_line": "DownloadString"
-                    }
-                },
-                {
-                    "match_phrase": {
-                        "process.command_line": "Bypass"
-                    }
+            },
+            {
+                "match": {
+                    "event.code": "1"
                 }
-            ],
-            "minimum_should_match": 0
-        }
+            }
+        ]
     }
 }
 
 try:
     response = es.search(
         index="winlogbeat-*",
-        query=query["query"],
+        query=query,
         size=10
     )
 
     hits = response["hits"]["hits"]
 
-    print(f"\n[+] Found {len(hits)} PowerShell events\n")
+    print(f"\n[+] Found {len(hits)} REAL PowerShell executions\n")
 
     for hit in hits:
         source = hit["_source"]
@@ -94,9 +61,9 @@ try:
         host = source.get("host", {}).get("name", "N/A")
         user = source.get("user", {}).get("name", "N/A")
         process_name = source.get("process", {}).get("name", "N/A")
-        command_line = source.get("process", {}).get("command_line", "CommandLine not available")
-        event_code = source.get("event", {}).get("code", "N/A")
+        command_line = source.get("process", {}).get("command_line", "N/A")
 
+        # 🔥 detection logic
         suspicious_keywords = [
             "-enc",
             "encodedcommand",
@@ -109,7 +76,7 @@ try:
 
         is_suspicious = False
 
-        if command_line != "CommandLine not available":
+        if command_line != "N/A":
             cmd_lower = command_line.lower()
             for keyword in suspicious_keywords:
                 if keyword in cmd_lower:
@@ -119,14 +86,13 @@ try:
         print("Time:", timestamp)
         print("Host:", host)
         print("User:", user)
-        print("Event Code:", event_code)
         print("Process:", process_name)
         print("Command Line:", command_line)
 
         if is_suspicious:
-            print("[ALERT] Suspicious PowerShell activity detected")
+            print("🚨 [ALERT] Suspicious PowerShell detected")
         else:
-            print("[INFO] PowerShell process detected - command line not suspicious or not available")
+            print("🟢 [OK] Normal PowerShell")
 
     print("=" * 60)
 
