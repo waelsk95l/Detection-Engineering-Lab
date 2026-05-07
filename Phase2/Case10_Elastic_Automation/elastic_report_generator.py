@@ -49,3 +49,11 @@ with open("sample_output.txt", "w", encoding="utf-8") as f:
         f.write("-" * 50 + "\n")
 
 print("[OK] Report saved to sample_output.txt")
+
+-----------------------------------------------------------------------
+
+# Future automation reporting module
+# Detection Engineering Lab
+# Wael SK
+
+print("Elastic report generator module")
