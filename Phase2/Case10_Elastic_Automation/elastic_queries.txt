@@ -1,3 +1,15 @@
-event.code:1 AND process.name:powershell.exe AND process.command_line:(*nop* OR *hidden* OR *IEX* OR *enc* OR *DownloadString*)
+process.name:"powershell.exe"
 
-event.code:1 AND process.name:(powershell.exe OR pwsh.exe)
+process.command_line:*nop*
+
+process.command_line:*enc*
+
+process.command_line:*DownloadString*
+
+process.command_line:*IEX*
+
+process.command_line:*Net.WebClient*
+
+event.code:1 AND process.name:"powershell.exe"
+
+process.command_line:(*nop* OR *enc* OR *DownloadString* OR *IEX*)
